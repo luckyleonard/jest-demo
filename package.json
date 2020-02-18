@@ -1,0 +1,15 @@
+{
+  "name": "jestdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
