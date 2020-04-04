@@ -1,9 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import Enzyme, { shallow, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('Test <App> render a div with class name of App', () => {
+  const wrapper = shallow(<App />);
+  console.log(wrapper.debug());
+  expect(wrapper.find('[data-test="app"]').length).toBe(1);
+  expect(wrapper.find('[data-test="app"]').prop('title')).toBe('prop test');
+  const container = wrapper.find('[data-test="app"]');
+  expect(container).toExist();
+  expect(container).toHaveProp('title', 'prop test');
+});
+
+test('Test <App> with snapshot', () => {
+  const wrapper = mount(<App />);
+  expect(wrapper).toMatchSnapshot();
 });

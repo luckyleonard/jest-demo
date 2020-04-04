@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <App> with snapshot 1`] = `
+<App>
+  <div
+    className="app"
+    data-test="app"
+    title="prop test"
+  >
+    First Class
+  </div>
+</App>
+`;
