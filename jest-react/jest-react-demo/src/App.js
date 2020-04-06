@@ -1,10 +1,10 @@
 import React from 'react';
-
+import TodoList from './containers/TodoList';
 function App() {
   return (
-    <div className='app' title='prop test' data-test='app'>
-      First Class
-    </div>
+    <>
+      <TodoList />
+    </>
   );
 }
 
