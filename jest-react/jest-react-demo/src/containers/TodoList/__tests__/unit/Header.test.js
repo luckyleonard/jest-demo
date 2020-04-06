@@ -53,4 +53,6 @@ it('call the function after clicking enter, with contents in the <Header/>', () 
   });
   expect(fn).toHaveBeenCalled();
   expect(fn).toHaveBeenLastCalledWith(userInput);
+  const newInputElem = wrapper.find("[data-test='input']");
+  expect(newInputElem.prop('value')).toBe('');
 });
