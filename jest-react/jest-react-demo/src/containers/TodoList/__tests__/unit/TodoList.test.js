@@ -1,10 +1,7 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import TodoList from '../../index';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 it('<TodoList/> should have an empty list', () => {
   const wrapper = shallow(<TodoList />);
