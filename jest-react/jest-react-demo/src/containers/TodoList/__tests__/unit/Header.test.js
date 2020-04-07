@@ -6,6 +6,11 @@ import Header from '../../components/Header';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+it('<Header/> should match the snapshot', () => {
+  const wrapper = shallow(<Header />);
+  expect(wrapper).toMatchSnapshot();
+});
+
 it('<Header/> should have a input field', () => {
   const wrapper = shallow(<Header />);
   const inputElem = wrapper.find("[data-test='input']");
