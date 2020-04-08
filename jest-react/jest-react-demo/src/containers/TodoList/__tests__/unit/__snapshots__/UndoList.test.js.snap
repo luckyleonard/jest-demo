@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UndoList/> should match the snapshot 1`] = `
+<div
+  className="undo-list"
+>
+  <h1
+    className="undo-list-title"
+  >
+    To be finished
+    <div
+      className="undo-list-count"
+      data-test="count"
+    >
+      0
+    </div>
+  </h1>
+  <ul
+    className="undo-list-content"
+  />
+</div>
+`;
