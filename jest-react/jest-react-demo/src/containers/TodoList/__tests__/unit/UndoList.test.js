@@ -49,7 +49,7 @@ describe('<UndoList/>', () => {
     const index = 1;
     const wrapper = shallow(<UndoList list={listData} deleteItem={fn} />);
     const deleteItems = findTestWrapper(wrapper, 'delete-item');
-    deleteItems.at(index).simulate('click'); // simulate delete 'Learn Jest'
+    deleteItems.at(index).simulate('click', { stopPropagation: () => {} }); // simulate delete 'Learn Jest'
     expect(fn).toHaveBeenCalledWith(index); // 这里会执行回调函数，使用这个数组的index作为回传参数
   });
 

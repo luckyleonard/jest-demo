@@ -20,7 +20,7 @@ describe('<TodoList/> ', () => {
     expect(Header.prop('addUndoItem')).toBeTruthy();
   });
 
-  it('addUndoItem should add userInput to undoList', () => {
+  it('addUndoItem() should add userInput to undoList', () => {
     // const Header = wrapper.find('Header');
     // const addFunc = Header.prop('addUndoItem');
     // addFunc(userInput);
@@ -46,7 +46,7 @@ describe('<TodoList/> ', () => {
     expect(UndoList.prop('valueChange')).toBeTruthy();
   });
 
-  it('deleteItem should delete the index of undoList', () => {
+  it('deleteItem() should delete the index of undoList', () => {
     const inputData = [
       { status: 'div', value: 'Learn react' },
       { status: 'div', value: 'Learn Jest' },
@@ -92,7 +92,10 @@ describe('<TodoList/> ', () => {
   });
 
   it('valueChange() should change the value in the index of the undoList', () => {
-    const inputData = [{ status: 'input', value: 'Learn Jest' }];
+    const inputData = [
+      { status: 'input', value: 'Learn Jest' },
+      { status: 'div', value: 'Learn TDD' },
+    ];
     wrapper.setState({
       undoList: inputData,
     });
