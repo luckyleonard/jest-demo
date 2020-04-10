@@ -1,14 +1,20 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 import { findTestWrapper } from '../../../../utils/testUtils';
 import TodoList from '../../index';
+import store from '../../../../store/createStore';
 
 it(`
   1. User input content in <Header/>
   2. User click enter
   3. List show the content which user input
 `, () => {
-  const wrapper = mount(<TodoList />);
+  const wrapper = mount(
+    <Provider store={store}>
+      <TodoList />
+    </Provider>
+  );
   const inputElem = findTestWrapper(wrapper, 'input');
   const content = 'Learn BDD';
   inputElem.simulate('change', {
