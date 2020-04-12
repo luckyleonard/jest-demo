@@ -37,7 +37,7 @@ class TodoList extends Component {
           });
         })
         .catch((e) => {
-          console.log(e);
+          //console.log(e);
         });
     }, 5000);
   }

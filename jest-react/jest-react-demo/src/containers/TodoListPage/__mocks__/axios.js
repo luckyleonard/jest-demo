@@ -12,7 +12,12 @@ export default {
   get(url) {
     if (url === '/undoList.json') {
       return new Promise((resolve, reject) => {
-        resolve(mockUndoList);
+        if (this.success) {
+          //axios函数里的success对象，在测试用例里指定是否为成功
+          resolve(mockUndoList);
+        } else {
+          reject(new Error());
+        }
       });
     }
   },

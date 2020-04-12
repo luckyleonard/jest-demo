@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 import { findTestWrapper } from '../../../../utils/testUtils';
 import TodoList from '../../index';
 import store from '../../../../store/createStore';
+import axios from '../../__mocks__/axios';
 
 beforeEach(() => {
   jest.useFakeTimers();
+  axios.success = true; //每次运行都假设success对象为成功
 }); //防止各测试用例的timer互相影响
 
 it(`
@@ -43,7 +45,7 @@ it(`
     }
   */
 it(`
-  1. User open the page
+  1. User open the page, with success get request
   2. Page should display the data from request
 `, (done) => {
   const wrapper = mount(
@@ -59,6 +61,28 @@ it(`
     //console.log(wrapper.debug());
     const listItem = findTestWrapper(wrapper, 'list-item');
     expect(listItem.length).toBe(1);
+    done();
+  });
+});
+
+it(`
+  1. User open the page, with fail get request
+  2. Page should display the page with no content
+`, (done) => {
+  axios.success = false;
+  const wrapper = mount(
+    <Provider store={store}>
+      <TodoList />
+    </Provider>
+  );
+
+  jest.runAllTimers(); //启动快速运行计时器
+  process.nextTick(() => {
+    //console.log(wrapper.debug());
+    wrapper.update();
+    //console.log(wrapper.debug());
+    const listItem = findTestWrapper(wrapper, 'list-item');
+    expect(listItem.length).toBe(0);
     done();
   });
 });
